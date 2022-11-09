@@ -1,7 +1,7 @@
 ﻿namespace webAssemblyLab1.Model
 {
 
-    public class Rootobject
+    public class MovieInfo
     {
         public bool adult { get; set; }
         public string backdrop_path { get; set; }
