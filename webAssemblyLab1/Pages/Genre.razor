@@ -4,10 +4,11 @@
 @inject MovieService service
 
 
-<h3>Genre</h3>
 
-@if (GenreRequest != null)
+
+@if (GenreRequest != null && movieTitle != null)
 {
+    <h3>Genres for the movie @movieTitle</h3>
     @foreach (var item in GenreRequest)
     {
         <div>@item.id</div>
@@ -16,9 +17,12 @@
 }
 
 @code {
+    public string movieTitle { get; set; }
     public IEnumerable<Model.Genre> GenreRequest { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         GenreRequest = await service.GetGenreAsync();
+        movieTitle = await service.GetMovieIdAsync();
     }
 }
