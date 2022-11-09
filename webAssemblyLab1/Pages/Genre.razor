@@ -1,0 +1,24 @@
+﻿@page "/genre"
+@using Model
+@using webAssemblyLab1.Services
+@inject MovieService service
+
+
+<h3>Genre</h3>
+
+@if (GenreRequest != null)
+{
+    @foreach (var item in GenreRequest)
+    {
+        <div>@item.id</div>
+        <div>@item.name</div>
+    }
+}
+
+@code {
+    public IEnumerable<Model.Genre> GenreRequest { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        GenreRequest = await service.GetGenreAsync();
+    }
+}
