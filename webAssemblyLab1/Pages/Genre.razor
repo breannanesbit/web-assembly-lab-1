@@ -6,23 +6,39 @@
 
 
 
-@if (GenreRequest != null && movieTitle != null)
+@if (movieGenreRequest != null)
 {
-    <h3>Genres for the movie @movieTitle</h3>
-    @foreach (var item in GenreRequest)
-    {
-        <div>@item.id</div>
-        <div>@item.name</div>
-    }
+    <div class="row">
+        <div>List of all the genres for movies </div>
+        @foreach (var item in movieGenreRequest)
+        {
+            <div class="col-6">@item.id</div>
+            <div class="col-6">@item.name</div>
+        }
+    </div>
+}
+
+@if (tvGenreRequest != null)
+{
+    <div class="row">
+        <div>List of all the genres for tv shows </div>
+        @foreach (var item in tvGenreRequest)
+        {
+            <div class="col-6">@item.id</div>
+            <div class="col-6">@item.name</div>
+        }
+    </div>
 }
 
 @code {
     public string movieTitle { get; set; }
-    public IEnumerable<Model.Genre> GenreRequest { get; set; }
+    public IEnumerable<Model.Genre> movieGenreRequest { get; set; }
+    public IEnumerable<Model.Genre> tvGenreRequest { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        GenreRequest = await service.GetGenreAsync();
-        movieTitle = await service.GetMovieIdAsync();
+        movieGenreRequest = await service.GetMovieGenreAsync();
+        tvGenreRequest = await service.GetTVShowsGenreAsync();
+        //movieTitle = await service.GetMovieIdAsync();
     }
 }
