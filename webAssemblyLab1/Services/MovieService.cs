@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Json;
 using webAssemblyLab1.Model;
+using static webAssemblyLab1.Model.trendingModel;
 
 namespace webAssemblyLab1.Services
 {
@@ -11,6 +12,13 @@ namespace webAssemblyLab1.Services
         {
             this.client = client;
 
+        }
+
+        public async Task<IEnumerable<Result>> GetTrendingMovieAsync()
+        {
+            //var arrayOfTrendingMovies = new List<MovieInfo>();      
+            var arrayOfTrendingMovies = await client.GetFromJsonAsync<Collection>("https://api.themoviedb.org/3/trending/movie/week?api_key=989763942fa4f236cb34de985f499dc6");
+            return arrayOfTrendingMovies.results;
         }
 
         public async Task<IEnumerable<Genre>> GetMovieGenreAsync()

@@ -1939,24 +1939,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brebr\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\bobby\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\brebr\\source\\repos\\webAssemblyLab1\\webAssemblyLab1\\webAssemblyLab1.csproj",
+      "projectUniqueName": "F:\\Users\\bobby\\Documents\\coding files\\api project\\webAssemblyLab1\\webAssemblyLab1.csproj",
       "projectName": "webAssemblyLab1",
-      "projectPath": "C:\\Users\\brebr\\source\\repos\\webAssemblyLab1\\webAssemblyLab1\\webAssemblyLab1.csproj",
-      "packagesPath": "C:\\Users\\brebr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\brebr\\source\\repos\\webAssemblyLab1\\webAssemblyLab1\\obj\\",
+      "projectPath": "F:\\Users\\bobby\\Documents\\coding files\\api project\\webAssemblyLab1\\webAssemblyLab1.csproj",
+      "packagesPath": "C:\\Users\\bobby\\.nuget\\packages\\",
+      "outputPath": "F:\\Users\\bobby\\Documents\\coding files\\api project\\webAssemblyLab1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\brebr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\bobby\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1964,7 +1959,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

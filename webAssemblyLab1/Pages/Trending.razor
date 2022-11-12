@@ -1,0 +1,40 @@
+﻿@page "/Trending"
+@using Model
+@using webAssemblyLab1.Services
+@inject MovieService service
+
+<h3>Trending</h3>
+
+
+
+@if (trendingMovieRequest != null)
+{
+    <div class="row">
+        <div>List of all the trending for movies </div>
+        @foreach (var item in trendingMovieRequest)
+        {
+            
+            
+            <div class="card p-0 m-auto" style="width: auto; ">
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/@item.poster_path" alt="Card image cap">
+                @*<div class="card-body">
+                   @* <h5 class="card-title">@item.title</h5>*@
+                    @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>*@
+            </div>
+        }
+    </div>
+}
+
+
+@code {
+   
+    public IEnumerable<trendingModel.Result> trendingMovieRequest { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        trendingMovieRequest = await service.GetTrendingMovieAsync();
+     
+    }
+}
+
