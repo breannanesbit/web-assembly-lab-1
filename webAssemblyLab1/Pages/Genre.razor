@@ -4,31 +4,33 @@
 @inject MovieService service
 
 
+<AuthorizeView>
+    <Authorized>
+    @if (movieGenreRequest != null)
+    {
+        <div class="row">
+            <div>List of all the genres for movies </div>
+            @foreach (var item in movieGenreRequest)
+            {
+                <div class="col-6">@item.id</div>
+                <div class="col-6">@item.name</div>
+            }
+        </div>
+    }
 
-
-@if (movieGenreRequest != null)
-{
-    <div class="row">
-        <div>List of all the genres for movies </div>
-        @foreach (var item in movieGenreRequest)
-        {
-            <div class="col-6">@item.id</div>
-            <div class="col-6">@item.name</div>
-        }
-    </div>
-}
-
-@if (tvGenreRequest != null)
-{
-    <div class="row">
-        <div>List of all the genres for tv shows </div>
-        @foreach (var item in tvGenreRequest)
-        {
-            <div class="col-6">@item.id</div>
-            <div class="col-6">@item.name</div>
-        }
-    </div>
-}
+    @if (tvGenreRequest != null)
+    {
+        <div class="row">
+            <div>List of all the genres for tv shows </div>
+            @foreach (var item in tvGenreRequest)
+            {
+                <div class="col-6">@item.id</div>
+                <div class="col-6">@item.name</div>
+            }
+        </div>
+    }
+    </Authorized>
+</AuthorizeView>
 
 @code {
     public string movieTitle { get; set; }

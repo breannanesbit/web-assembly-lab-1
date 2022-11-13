@@ -3,20 +3,22 @@
 @using webAssemblyLab1.Services
 @inject MovieService service
 
-<h3>Trending</h3>
+<h1 class="text-center">Trending</h1>
 
 
 
 @if (trendingMovieRequest != null)
 {
     <div class="row">
-        <div>List of all the trending for movies </div>
+        <h3>MOVIES: </h3>
         @foreach (var item in trendingMovieRequest)
         {
-            
-            
-            <div class="card p-0 m-auto" style="width: auto; ">
-                <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/@item.poster_path" alt="Card image cap">
+
+
+            <div class="card p-0 m-auto mt-1" style="width: auto; ">
+                <a asp-page="/Movie" asp-route-id=@item.id>
+                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/@item.poster_path" alt="Card image cap">
+                </a>
                 @*<div class="card-body">
                    @* <h5 class="card-title">@item.title</h5>*@
                     @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -26,15 +28,37 @@
         }
     </div>
 }
+<br />
 
+@if (trendingTvRequest != null)
+{
+    <div class="row">
+        <h3>TV SHOWS: </h3>
+        @foreach (var item in trendingTvRequest)
+        {
+
+
+            <div class="card p-0 m-auto mt-1" style="width: auto; ">
+                <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/@item.poster_path" alt="Card image cap">
+                @*<div class="card-body">
+        @* <h5 class="card-title">@item.title</h5>*@
+                @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>*@
+            </div>
+        }
+    </div>
+}
 
 @code {
-   
+
     public IEnumerable<trendingModel.Result> trendingMovieRequest { get; set; }
+    public IEnumerable<trendingModel.Result> trendingTvRequest { get; set; }
     protected override async Task OnInitializedAsync()
     {
         trendingMovieRequest = await service.GetTrendingMovieAsync();
-     
+        trendingTvRequest = await service.GetTrendingTvAsync();
+
     }
 }
 

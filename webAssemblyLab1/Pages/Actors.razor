@@ -1,0 +1,48 @@
+﻿@page "/Actors"
+@using webAssemblyLab1.Model
+@using webAssemblyLab1.Services
+@inject MovieService service
+
+<AuthorizeView>
+            <Authorized>
+<h3 class="text-center">Actors</h3>
+
+
+@if (PopularActorRequest != null)
+{
+    <div class="row">
+        <h3>Popular: </h3>
+        @foreach (var actor in PopularActorRequest)
+        {
+
+
+            <div class="card p-0 m-auto mt-1" style="width: 185px; ">
+                <a asp-page="/Movie" asp-route-id=@actor.id>
+                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/@actor.profile_path" alt="Card image cap">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">name:@actor.name</h5>
+                    @foreach(var movie in actor.known_for)
+                    {
+                    <p class="card-text">@movie.title</p>
+                    }
+                    @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+                </div>
+            </div>
+        }
+    </div>
+}
+</Authorized>
+</AuthorizeView>
+@code {
+    public IEnumerable<ActorModel.Actor> PopularActorRequest { get; set; }
+  
+
+    protected override async Task OnInitializedAsync()
+    {
+        PopularActorRequest = await service.GetPopularActorAsync();
+        
+
+
+    }
+}

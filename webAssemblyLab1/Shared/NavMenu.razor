@@ -14,26 +14,40 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="genre">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Genres
-            </NavLink>
-        </div>
+        <AuthorizeView>
+            <Authorized>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="genre">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Genres
+                </NavLink>
+            </div>
+            </Authorized>
+        </AuthorizeView>
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="Trending">
                 <span class="oi oi-list-rich" aria-hidden="true"></span> Trending
             </NavLink>
         </div>
+        <AuthorizeView>
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="Actors">
+                        <span class="oi oi-list-rich" aria-hidden="true"></span> Actors
+                    </NavLink>
+                </div>
+           
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="Playing">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Now Playing
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="Discover">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Discover
+                </NavLink>
+            </div>
+            </Authorized>
+        </AuthorizeView>
     </nav>
 </div>
 

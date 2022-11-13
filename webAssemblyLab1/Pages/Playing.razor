@@ -1,0 +1,48 @@
+﻿@page "/Playing"
+@using Model
+@using webAssemblyLab1.Services
+@inject MovieService service
+<AuthorizeView>
+    <Authorized>
+<h1 class="text-center">Playing</h1>
+
+
+
+@if (playingMovieRequest != null)
+{
+    <div class="row">
+        <h3>Now: </h3>
+        @foreach (var item in playingMovieRequest)
+        {
+
+
+            <div class="card p-0 m-auto mt-1" style="width: auto; ">
+                <a asp-page="/Movie" asp-route-id=@item.id>
+                    <img class="card-img-top" src="https://image.tmdb.org/t/p/w185/@item.poster_path" alt="Card image cap">
+                </a>
+                @*<div class="card-body">
+        @* <h5 class="card-title">@item.title</h5>*@
+                @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>*@
+            </div>
+        }
+    </div>
+}
+</Authorized>
+</AuthorizeView>
+
+
+
+@code {
+
+    public IEnumerable<trendingModel.Result> playingMovieRequest { get; set; }
+   // public IEnumerable<trendingModel.Result> trendingTvRequest { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        playingMovieRequest = await service.GetPlayingAsync();
+        //trendingTvRequest = await service.GetTrendingTvAsync();
+
+    }
+}
+
